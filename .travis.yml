@@ -3,7 +3,10 @@ sudo: required
 os: linux-ppc64le
 
 before_install:
-- sudo apt-get update -qq
+- sudo apt-get update -y -qq
+- sudo apt-get upgrade -y -qq
 - sudo apt-get install -qq build-essential libicu-dev libssl-dev gperf bison ruby flex
+
+script: uname -a
 
 script: ./build -c -r
