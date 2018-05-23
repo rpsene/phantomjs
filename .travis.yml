@@ -9,4 +9,4 @@ before_install:
 
 script: uname -a
 
-script: ./build.py -c -r
+script: ./build.py -c -r -s
