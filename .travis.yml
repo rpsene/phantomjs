@@ -11,6 +11,11 @@ script: uname -a
 
 script: ./build.py -c -r -s
 
+branches:
+    only:
+    - master
+    - /v\d+\.\d+[a-z]/
+
 before_deploy:
       # Set up git user name and tag this commit
       - git config --local user.name "Rafael Peria de Sene"
