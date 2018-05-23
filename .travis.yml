@@ -11,6 +11,12 @@ script: uname -a
 
 script: ./build.py -c -r -s
 
+script: ./bin/phantomjs --version
+
+script: ldd ./bin/phantomjs
+
+script: python ./test/run-tests.py --verbose 
+
 before_deploy:
       # Set up git user name and tag this commit
       - git config --local user.name "Rafael Peria de Sene"
