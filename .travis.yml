@@ -10,3 +10,17 @@ before_install:
 script: uname -a
 
 script: ./build.py -c -r -s
+
+before_deploy:
+      # Set up git user name and tag this commit
+      - git config --local user.name "Rafael Peria de Sene"
+      - git config --local user.email "rpsene@gmail.com"
+      - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+deploy:
+    provider: releases
+    api_key:
+      secure: $YOUR_API_KEY_ENCRYPTED
+    file: ./bin/phantomjs
+    skip_cleanup: true
+    on:
+      tags: true
